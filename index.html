@@ -1,729 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>LENS \u2014 Photography Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWLTBAP Humble – Standard LUT | Free Download</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; margin: 0; }
 
-  :root {
-    --bg: #0a0a0a;
-    --surface: #111111;
-    --surface2: #1a1a1a;
-    --border: #222222;
-    --accent: #c8a96e;
-    --accent2: #e8c98e;
-    --text: #e8e4dc;
-    --muted: #6a6560;
-    --light: #b0a898;
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'Montserrat', sans-serif;
-  }
+        /* Animated gradient background */
+        .bg-gradient {
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1025 25%, #0d1b2a 50%, #1a1025 75%, #0f0f1a 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-  html { scroll-behavior: smooth; }
+        /* Floating orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            pointer-events: none;
+            animation: float 8s ease-in-out infinite;
+        }
+        .orb-1 {
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, #e07c4f, #d4563a);
+            top: -80px; left: -60px;
+            animation-delay: 0s;
+        }
+        .orb-2 {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, #8b5cf6, #6d28d9);
+            bottom: -50px; right: -40px;
+            animation-delay: -3s;
+        }
+        .orb-3 {
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, #f59e0b, #d97706);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -5s;
+            opacity: 0.15;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-weight: 300;
-    overflow-x: hidden;
-    cursor: none;
-  }
+        /* Color strip accent */
+        .color-strip {
+            height: 4px;
+            background: linear-gradient(90deg, #e07c4f, #f59e0b, #8b5cf6, #6366f1, #e07c4f);
+            background-size: 200% 100%;
+            animation: stripMove 4s linear infinite;
+        }
+        @keyframes stripMove {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
 
-  /* Custom Cursor */
-  .cursor {
-    width: 10px; height: 10px;
-    background: var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
-  }
-  .cursor-ring {
-    width: 36px; height: 36px;
-    border: 1px solid rgba(200,169,110,0.5);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-  }
-  body:hover .cursor { opacity: 1; }
-  .cursor.hover { width: 16px; height: 16px; background: var(--accent2); }
-  .cursor-ring.hover { width: 52px; height: 52px; opacity: 0.4; }
+        /* Download button */
+        .btn-download {
+            background: linear-gradient(135deg, #e07c4f, #d4563a, #c2410c);
+            background-size: 200% 200%;
+            animation: btnGlow 3s ease infinite;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(224, 124, 79, 0.35);
+        }
+        .btn-download:active {
+            transform: translateY(-1px);
+        }
+        @keyframes btnGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .btn-download .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: scale(0);
+            animation: rippleAnim 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes rippleAnim {
+            to { transform: scale(4); opacity: 0; }
+        }
 
-  /* Nav */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 28px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
-  }
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 300;
-    letter-spacing: 0.25em;
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--text); }
-  .nav-links { display: flex; gap: 40px; list-style: none; }
-  .nav-links a {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--light);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  .nav-links a:hover { color: var(--accent); }
+        /* Fade-up animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+        .fade-up-1 { animation-delay: 0.1s; }
+        .fade-up-2 { animation-delay: 0.25s; }
+        .fade-up-3 { animation-delay: 0.4s; }
+        .fade-up-4 { animation-delay: 0.55s; }
+        .fade-up-5 { animation-delay: 0.7s; }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-  }
-  .hamburger span {
-    display: block; width: 24px; height: 1px;
-    background: var(--text);
-    transition: all 0.3s;
-  }
+        /* Glass card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+        }
 
-  /* Hero */
-  .hero {
-    height: 100vh;
-    display: flex;
-    align-items: flex-end;
-    padding: 80px 60px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(200,169,110,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 80% at 20% 80%, rgba(200,169,110,0.04) 0%, transparent 50%);
-  }
-  .hero-grid-overlay {
-    position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-  .hero-content { position: relative; z-index: 2; max-width: 700px; }
-  .hero-eyebrow {
-    font-size: 0.6rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 40px; height: 1px;
-    background: var(--accent);
-  }
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(3.5rem, 9vw, 7.5rem);
-    font-weight: 300;
-    line-height: 0.92;
-    letter-spacing: -0.01em;
-    margin-bottom: 32px;
-    color: var(--text);
-  }
-  .hero-title em { font-style: italic; color: var(--accent); }
-  .hero-sub {
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    color: var(--muted);
-    max-width: 340px;
-    line-height: 2;
-  }
-  .hero-scroll {
-    position: absolute;
-    right: 60px; bottom: 80px;
-    writing-mode: vertical-rl;
-    font-size: 0.6rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    animation: float 3s ease-in-out infinite;
-  }
-  .hero-scroll::after {
-    content: '';
-    display: block;
-    width: 1px; height: 50px;
-    background: linear-gradient(to bottom, var(--accent), transparent);
-  }
-  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+        /* Before/After comparison */
+        .comparison-grid img {
+            transition: transform 0.3s ease;
+        }
+        .comparison-grid img:hover {
+            transform: scale(1.03);
+        }
 
-  /* Section Shared */
-  section { padding: 120px 60px; }
-  .section-label {
-    font-size: 0.58rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 30px; height: 1px;
-    background: var(--accent);
-  }
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 60px;
-  }
-  .section-title em { font-style: italic; color: var(--accent); }
+        /* Pill badges */
+        .pill {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .pill:hover {
+            background: rgba(224, 124, 79, 0.15);
+            border-color: rgba(224, 124, 79, 0.3);
+        }
 
-  /* Filter Bar */
-  .filter-bar {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-bottom: 50px;
-  }
-  .filter-btn {
-    font-family: var(--font-body);
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 9px 20px;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .filter-btn:hover, .filter-btn.active {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: rgba(200,169,110,0.05);
-  }
-
-  /* Portfolio Grid */
-  .portfolio-grid {
-    columns: 3;
-    column-gap: 16px;
-  }
-  .photo-item {
-    break-inside: avoid;
-    margin-bottom: 16px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    display: block;
-  }
-  .photo-item img {
-    width: 100%;
-    display: block;
-    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    filter: brightness(0.88);
-  }
-  .photo-item:hover img {
-    transform: scale(1.05);
-    filter: brightness(1);
-  }
-  .photo-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    display: flex;
-    align-items: flex-end;
-    padding: 24px;
-  }
-  .photo-item:hover .photo-overlay { opacity: 1; }
-  .photo-meta { color: #fff; }
-  .photo-meta h4 {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 300;
-    margin-bottom: 2px;
-  }
-  .photo-meta span {
-    font-size: 0.58rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .photo-zoom-icon {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%) scale(0.6);
-    opacity: 0;
-    width: 48px; height: 48px;
-    border: 1px solid rgba(255,255,255,0.6);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.4s ease;
-    color: #fff;
-    font-size: 1.1rem;
-  }
-  .photo-item:hover .photo-zoom-icon {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  /* Lightbox */
-  .lightbox {
-    position: fixed; inset: 0;
-    z-index: 1000;
-    background: rgba(5,5,5,0.97);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-    backdrop-filter: blur(12px);
-  }
-  .lightbox.open { opacity: 1; pointer-events: all; }
-  .lightbox-img-wrap {
-    position: relative;
-    max-width: 88vw;
-    max-height: 88vh;
-    transform: scale(0.92);
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  .lightbox.open .lightbox-img-wrap { transform: scale(1); }
-  .lightbox-img-wrap img {
-    max-width: 88vw;
-    max-height: 80vh;
-    object-fit: contain;
-    display: block;
-    border: 1px solid var(--border);
-  }
-  .lightbox-caption {
-    padding: 14px 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-  .lightbox-caption h3 {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 300;
-  }
-  .lightbox-caption span {
-    font-size: 0.58rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .lightbox-close {
-    position: fixed;
-    top: 28px; right: 40px;
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--light);
-    font-size: 1.2rem;
-    width: 44px; height: 44px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .lightbox-close:hover { border-color: var(--accent); color: var(--accent); }
-  .lightbox-nav {
-    position: fixed;
-    top: 50%; transform: translateY(-50%);
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--light);
-    font-size: 1rem;
-    width: 48px; height: 48px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .lightbox-nav:hover { border-color: var(--accent); color: var(--accent); }
-  .lightbox-nav.prev { left: 28px; }
-  .lightbox-nav.next { right: 28px; }
-  .lightbox-counter {
-    position: fixed;
-    bottom: 30px; left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    color: var(--muted);
-  }
-
-  /* About */
-  #about {
-    background: var(--surface);
-    position: relative;
-    overflow: hidden;
-  }
-  #about::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -100px;
-    width: 500px; height: 500px;
-    border: 1px solid rgba(200,169,110,0.07);
-    border-radius: 50%;
-  }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .about-img-wrap {
-    position: relative;
-  }
-  .about-img-wrap::before {
-    content: '';
-    position: absolute;
-    top: 20px; left: 20px;
-    right: -20px; bottom: -20px;
-    border: 1px solid var(--accent);
-    opacity: 0.3;
-    z-index: 0;
-  }
-  .about-img-wrap img {
-    width: 100%;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    display: block;
-    position: relative;
-    z-index: 1;
-    filter: sepia(15%) brightness(0.9);
-  }
-  .about-content .section-title { margin-bottom: 30px; }
-  .about-body {
-    font-size: 0.82rem;
-    line-height: 2;
-    color: var(--light);
-    margin-bottom: 40px;
-  }
-  .about-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 40px;
-    border-top: 1px solid var(--border);
-    padding-top: 32px;
-  }
-  .stat-num {
-    font-family: var(--font-display);
-    font-size: 2.4rem;
-    font-weight: 300;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .stat-label {
-    font-size: 0.58rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  /* Contact */
-  #contact {
-    background: var(--bg);
-  }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 80px;
-    align-items: start;
-  }
-  .contact-info .about-body { margin-bottom: 32px; }
-  .contact-detail {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 20px;
-  }
-  .contact-icon {
-    width: 32px; height: 32px;
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--accent);
-    font-size: 0.8rem;
-    flex-shrink: 0;
-  }
-  .contact-detail-text { font-size: 0.75rem; line-height: 1.7; color: var(--light); }
-  .contact-detail-label {
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 2px;
-  }
-
-  /* Form */
-  .contact-form { display: flex; flex-direction: column; gap: 16px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-group { display: flex; flex-direction: column; gap: 8px; }
-  .form-group label {
-    font-size: 0.57rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: 0.78rem;
-    padding: 14px 16px;
-    outline: none;
-    transition: border-color 0.3s;
-    resize: none;
-    -webkit-appearance: none;
-  }
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus { border-color: var(--accent); }
-  .form-group textarea { height: 120px; }
-
-  .btn-submit {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    font-family: var(--font-body);
-    font-size: 0.62rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    padding: 16px 44px;
-    cursor: pointer;
-    align-self: flex-start;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .btn-submit::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--accent);
-    transform: translateX(-100%);
-    transition: transform 0.35s ease;
-    z-index: 0;
-  }
-  .btn-submit:hover::before { transform: translateX(0); }
-  .btn-submit:hover { color: var(--bg); }
-  .btn-submit span { position: relative; z-index: 1; }
-
-  .form-success {
-    display: none;
-    padding: 16px;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    background: rgba(200,169,110,0.05);
-  }
-
-  /* Footer */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 40px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    color: var(--muted);
-  }
-  .footer-logo {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-  }
-  .social-links { display: flex; gap: 20px; }
-  .social-links a {
-    color: var(--muted);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.58rem;
-    letter-spacing: 0.18em;
-    transition: color 0.3s;
-  }
-  .social-links a:hover { color: var(--accent); }
-
-  /* Fade-in animation */
-  .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    nav { padding: 24px 36px; }
-    .hero, section { padding-left: 36px; padding-right: 36px; }
-    .portfolio-grid { columns: 2; }
-    .hero-scroll { right: 36px; }
-    .about-grid, .contact-grid { gap: 48px; }
-    footer { padding: 32px 36px; }
-  }
-
-  @media (max-width: 768px) {
-    nav { padding: 20px 24px; }
-    .nav-links {
-      display: none;
-      position: fixed;
-      top: 0; right: 0;
-      width: 65vw;
-      height: 100vh;
-      background: var(--surface);
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 36px;
-      border-left: 1px solid var(--border);
-      z-index: 200;
-    }
-    .nav-links.open { display: flex; }
-    .nav-links a { font-size: 0.8rem; }
-    .hamburger { display: flex; z-index: 201; }
-    .hero { padding: 20px 24px 60px; }
-    .hero-scroll { display: none; }
-    section { padding: 80px 24px; }
-    .portfolio-grid { columns: 2; column-gap: 10px; }
-    .photo-item { margin-bottom: 10px; }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-img-wrap { max-width: 360px; }
-    .contact-grid { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 20px; text-align: center; padding: 28px 24px; }
-    .lightbox-nav.prev { left: 8px; }
-    .lightbox-nav.next { right: 8px; }
-  }
-
-  @media (max-width: 480px) {
-    .portfolio-grid { columns: 1; }
-    .about-stats { grid-template-columns: repeat(3, 1fr); }
-    .btn-submit { width: 100%; text-align: center; justify-content: center; }
-  }
-</style>
+        /* Step number */
+        .step-num {
+            background: linear-gradient(135deg, #e07c4f, #d4563a);
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gradient text-white min-h-screen relative overflow-x-hidden">
 
-<!-- Custom Cursor -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+    <!-- Color Strip Top -->
+    <div class="color-strip fixed top-0 left-0 w-full z-50"></div>
 
-<!-- Navigation -->
-<nav>
-  <a href="#" class="nav-logo">L<span>ENS</span></a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#portfolio">Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+    <!-- Floating Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
-<!-- Hero -->
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-grid-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Visual Storyteller</p>
-    <h1 class="hero-title">
-      Light.<br>
-      <em>Silence.</em><br>
-      Moment.
-    </h1>
-    <p class="hero-sub">Capturing the world between breaths \u2014 where light finds form and silence becomes art.</p>
-  </div>
-  <div class="hero-scroll">Scroll</div>
-</section>
+    <!-- Main Content -->
+    <main class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-20">
 
-<!-- Portfolio -->
-<section id="portfolio">
-  <p class="section-label fade-in">Selected Works</p>
-  <h2 class="section-title fade-in">The <em>Portfolio</em></h2>
-
-  <div class="filter-bar fade-in">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="landscape">Landscape</button>
-    <button class="filter-btn" data-filter="portrait">Portrait</button>
-    <button class="filter-btn" data-filter="street">Street</button>
-    <button class="filter-btn" data-filter="abstract">Abstract</button>
-  </div>
-
-  <div class="portfolio-grid" id="grid">
-    <!-- Photos injected by JS -->
-  </div>
-</section>
-
-<!-- About -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-img-wrap fade-in">
-      <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80" alt="Photographer portrait"/>
-    </div>
-    <div class="about-content">
-      <p class="section-label fade-in">Behind the Lens</p>
-      <h2 class="section-title fade-in">The <em>Story</em></h2>
-      <p class="about-body fade-in">
-        I am a visual artist and photographer based in New York, with over a decade spent chasing light across six continents. My work explores the quiet tension between the human form and its environment \u2014 the decisive moment where emotion becomes geometry.
-      </p>
-      <p class="about-body fade-in">
-        Whether shooting the windswept dunes of Namibia or the rain-soaked streets of Tokyo at 3 AM, I believe every frame is a negotiation between what is seen and what is felt. I shoot mostly on film, with occasional forays into digital when the moment demands it.
-      </p>
-      <div class="about-stats fade-in">
-        <div>
-          <p class="stat-num">12</p>
-          <p class="stat-label">Years Active</p>
+        <!-- Badge -->
+        <div class="fade-up fade-up-1 mb-6">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase text-amber-300 border border-amber-500/30 bg-amber-500/10">
+                <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                .CUBE LUT File
+            </span>
         </div>
-        <div>
-          <p class="stat-num">48</p>
-          <p class="stat-label">Countries</p>
-        </div>
-        <div>
-          <p class="stat-num">6</p>
-          <p class="stat-label">Publications</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Contact -->
-<section id="contact">
-  <p class="section-label fade-in">Get in Touch</p>
-  <h2 class="section-title fade-in">Let's <em>Connect</em></h2>
-  <div class="contact-grid">
-    <div class="contact-info fade-in">
-      <p class="about-body">Available for editorial commissions, fine art prints, and collaborative projects. Response within 48 hours.<
+        <!-- Title -->
+        <h1 class="fade-up fade-up-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-center leading-tight max-w-4xl">
+            <span class="bg-gradient-to-r from-orange-300 via-amber-200 to-orange-300 bg-clip-text text-transparent">
+                IWLTBAP Humble
+            </span>
+            <br>
+            <span class="text-white/80 text-2xl sm:text-3xl md:text-4xl font-light tracking-wide">
+                — Standard —
+            </span>
+        </h1>
+
+        <!-- Description -->
+        <p class="fade-up fade-up-2 mt-6 text-base sm:text-lg text-white/55 text-center max-w-2xl leading-relaxed">
+            A beautifully crafted color lookup table (LUT) from the 
+            <span class="text-amber-300/80 font-medium">IWLTBAP</span> collection. 
+            The "Humble – Standard" preset delivers warm, natural tones with subtle 
+            film-like qualities — perfect for portraits, lifestyle, and travel photography.
+        </p>
+
+        <!-- Feature Pills -->
+        <div class="fade-up fade-up-3 mt-8 flex flex-wrap justify-center gap-3">
+            <span class="pill px-4 py-2 rounded-full text-sm text-white/60">
+                📁 .CUBE Format
+            </span>
+            <span class="pill px-4 py-2 rounded-full text-sm text-white/60">
+                🎨 Lightroom Compatible
+            </span>
+            <span class="pill px-4 py-2 rounded-full text-sm text-white/60">
+                🎬 Video & Photo
+            </span>
+            <span class="pill px-4 py-2 rounded-full text-sm text-white/60">
+                ⚡ One-Click Apply
+            </span>
+        </div>
+
+        <!-- Download Button -->
+        <div class="fade-up fade-up-4 mt-10">
+            <a href="IWLTBAP Humble - Standard.cube"
+               download="IWLTBAP Humble - Standard.cube"
+               class="btn-download inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-white font-semibold text-lg no-underline"
+               id="downloadBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3"/>
+                </svg>
+                Download LUT
+            </a>
+            <p class="text-center mt-3 text-xs text-white/30">IWLTBAP Humble - Standard.cube</p>
+        </div>
+
+        <!-- Compatibility Section -->
+        <div class="fade-up fade-up-5 mt-16 w-full max-w-2xl">
+            <div class="glass-card rounded-2xl p-6 sm:p-8">
+                <h2 class="text-lg font-semibold text-white/90 mb-5 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/>
+                    </svg>
+                    How to Use
+                </h2>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="step-num text-white">1</div>
+                        <div>
+                            <p class="text-sm text-white/70 leading-relaxed">
+                                <span class="text-white/90 font-medium">Download</span> the <code class="text-amber-300/80 bg-white/5 px-1.5 py-0.5 rounded text-xs">IWLTBAP Humble - Standard.cube</code> file by clicking the button above.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="step-num text-white">2</div>
+                        <div>
+                            <p class="text-sm text-white/70 leading-relaxed">
+                                <span class="text-white/90 font-medium">Import</span> the .cube file into your preferred editing software — Lightroom, Premiere Pro, DaVinci Resolve, Final Cut Pro, or Photoshop.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="step-num text-white">3</div>
+                        <div>
+                            <p class="text-sm text-white/70 leading-relaxed">
+                                <span class="text-white/90 font-medium">Apply</span> the LUT to your photo or video and fine-tune intensity to taste. Enjoy the warm, cinematic look!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compatibility logos row -->
+                <div class="mt-6 pt-5 border-t border-white/5">
+                    <p class="text-xs text-white/30 uppercase tracking-widest mb-3">Compatible with</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs text-white/50 bg-white/5 px-3 py-1.5 rounded-lg">Adobe Lightroom</span>
+                        <span class="text-xs text-white/50 bg-white/5 px-3 py-1.5 rounded-lg">Premiere Pro</span>
+                        <span class="text-xs text-white/50 bg-white/5 px-3 py-1.5 rounded-lg">DaVinci Resolve</span>
+                        <span class="text-xs text-white/50 bg-white/5 px-3 py-1.5 rounded-lg">Final Cut Pro</span>
+                        <span class="text-xs text-white/50 bg-white/5 px-3 py-1.5 rounded-lg">Photoshop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 text-center py-8 text-xs text-white/20">
+        <p>Made with care · LUT by <span class="text-white/40">IWLTBAP</span></p>
+    </footer>
+
+    <!-- Ripple effect on button -->
+    <script>
+        const btn = document.getElementById('downloadBtn');
+        btn.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            const rect = btn.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+            ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+            btn.appendChild(ripple);
+            ripple.addEventListener('animationend', () => ripple.remove());
+        });
+    </script>
+
+</body>
+</html>
