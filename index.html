@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HostREDNK | Download</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap');
+
+        body {
+            background-color: #050505; /* Deep Black */
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .futuristic {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* සරල Fade-in Animation එකක් */
+        .fade-in {
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Button එක Hover කරද්දී එන රතු පාට Glow එක */
+        .btn-glow:hover {
+            box-shadow: 0 0 20px 5px rgba(220, 38, 38, 0.5);
+            transform: scale(1.03);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between items-center p-8">
+
+    <header class="fade-in mt-10">
+        <h1 class="futuristic text-4xl md:text-6xl font-bold tracking-tighter">
+            Host<span class="text-red-600">RED</span>NK
+        </h1>
+    </header>
+
+    <main class="fade-in flex flex-col items-center text-center">
+        <p class="text-gray-500 text-sm tracking-widest uppercase mb-2">Ready to download</p>
+        <h2 class="text-white text-xl font-mono mb-8 opacity-80">shotcut-win64-250816.exe</h2>
+
+        <a href="shotcut-win64-250816.exe" download 
+           class="btn-glow bg-red-600 hover:bg-red-700 text-white font-bold py-5 px-12 rounded-2xl flex items-center gap-3 transition-all no-underline">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
+            </svg>
+            <span class="text-xl tracking-wide">DOWNLOAD NOW</span>
+        </a>
+    </main>
+
+    <footer class="fade-in mb-6">
+        <p class="text-gray-600 text-sm font-light">
+            Created by <span class="text-gray-400 font-semibold uppercase">Naveen</span>
+        </p>
+    </footer>
+
+</body>
+</html>
