@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/* ── Page fade-in ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInSlow {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Pulsing red glow behind the button ── */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(220, 38, 38, 0.35),
+      0 0 60px rgba(220, 38, 38, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(220, 38, 38, 0.55),
+      0 0 90px rgba(220, 38, 38, 0.25);
+  }
+}
+
+/* ── Floating particles ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50%      { transform: translateY(-30px) scale(1.15); opacity: 0.9; }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+  50%      { transform: translateY(25px) scale(0.85); opacity: 0.8; }
+}
+
+/* ── Scanning line ── */
+@keyframes scanline {
+  0%   { top: -10%; }
+  100% { top: 110%; }
+}
+
+/* ── Shimmer on button text ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── Grid fade-in ── */
+@keyframes gridFade {
+  from { opacity: 0; }
+  to   { opacity: 0.04; }
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 3px; }
+
+html {
+  scrollbar-color: #dc2626 #000;
+}
